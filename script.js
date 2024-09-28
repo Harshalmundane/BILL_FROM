@@ -19,7 +19,7 @@ document.getElementById("addItemButton").addEventListener("click", function() {
         <td><input type="text" name="itemValue" id="itemValue_${rowCount}" readonly></td>
         <td><input type="text" name="makingCharge" id="makingCharge_${rowCount}"></td>
         <td><input type="text" name="taxableValue" id="taxableValue_${rowCount}" readonly></td>
-        <td><button class="delete-button" onclick="deleteRow(this)">Delete</button></td>
+        <td><button id="delete-button" onclick="deleteRow(this)">Delete</button></td>
     `;
 
     tableBody.appendChild(newRow);
