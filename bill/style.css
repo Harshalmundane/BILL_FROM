@@ -1,0 +1,422 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #f4f4f4;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 210mm; /* A4 width */
+  height: 297mm; /* A4 height */
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Container Styling */
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 210mm; /* Adjusted for A4 */
+  margin: 0 auto;
+  min-height: calc(297mm - 40mm); /* Adjusted for padding */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Header Styling */
+header {
+  max-width: 210mm; /* Adjusted for A4 */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+header img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Content Container */
+.content-container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 180mm; /* Adjusted for A4 */
+  margin: 20px auto;
+}
+
+/* Typography */
+.content-container p {
+  margin: 10px 0;
+  line-height: 1.6;
+  font-size: 14pt; /* Slightly increased for print readability */
+  color: #444;
+}
+
+/* Headings */
+.content-container p:first-child {
+  font-size: 16pt;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Highlighted Text */
+.content-container p span {
+  font-weight: bold;
+  color: #000;
+}
+
+.content-container p:nth-child(5),
+.content-container p:nth-child(6) {
+  display: inline-block;
+  width: 48%;
+}
+
+.content-container p:nth-child(5) {
+  margin-right: 4%;
+}
+
+.content-container p:last-child {
+  text-align: right;
+}
+
+.invoice_No {
+  position: absolute;
+  top: 152px;
+  /* right: 2px; */
+  /* left: 146px; */
+  /* bottom: 50px; */
+  padding: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 30px;
+  /* margin-top: 236px; */
+  border-radius: 4px;
+}
+
+/* section 2 */
+.party-details-section,
+.summary-section,
+.bill-table,
+.footer {
+  margin: 0; /* Remove excessive margin */
+  padding: 0;
+}
+
+.party-details-section {
+  position: relative;
+  margin: 0px 62px -92px 83px; /* Combine margin adjustments */
+}
+
+.party-details {
+  padding: 15px; /* Reduce padding */
+  margin-top: 20px;
+  margin-bottom: 5px;
+  background: transparent;
+  border-radius: 5px; /* Rounded corners for aesthetics */
+  font-size: 12px; /* Decrease font size to fit more content */
+}
+
+.customer-contact-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.customer-details,
+.contact-details {
+  width: 48%; /* Ensure even distribution of space */
+}
+
+.input-group {
+  margin-bottom: 8px; /* Reduce space between input groups */
+}
+
+.input-group label {
+  width: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 12px; /* Match font size to fit smaller space */
+}
+
+.party-details-title {
+  margin-bottom: 10px; /* Reduce margin under the title */
+  /* font-size: 1px; Slightly larger for the title */
+}
+
+
+.invoice-date {
+  position: absolute;
+  top: -19px; /* Adjusted to fit within the section */
+  right: -100px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.party-details-title {
+  position: absolute;
+  top: -18px;
+  left: 46px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  padding: 0 5px;
+}
+
+.party-details-section {
+  position: relative;
+  margin-bottom: 0px;
+  margin-top: -92px;
+  margin-left: 83px;
+  margin-right: 62px;
+}
+
+.party-details {
+  padding: 10px;
+  margin-top: 20px;
+  background:transparent;
+  border-radius: 26px;
+}
+
+/* conmplete */
+
+
+/* section 3 */
+.items-table {
+  width: calc(100% - 30px); /* Full width minus margin */
+  margin: 0 15px; /* Add 15px margin to both left and right */
+  border-collapse: collapse;
+  border: 1px solid black;
+  font-family: Arial, sans-serif;
+}
+
+.items-table th,
+.items-table td {
+  padding: 4px; /* Reduce padding to fit more content */
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 13px; /* Reduce font size to fit content */
+  vertical-align: middle; /* Center content vertically */
+}
+
+.items-table th {
+  background-color: #f4f4f4; 
+  font-weight: bold;
+  height: 52px; /* Ensure consistent header height */
+}
+
+.items-table td {
+  padding: 10px; /* Consistent padding reduction */
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  vertical-align: middle; /* Center content vertically */
+}
+
+.items-table input[type="text"] {
+  border: none;
+  text-align: start;
+  padding: 0;
+  box-sizing: border-box;
+  background: none; /* Ensure the background is transparent */
+  font-size: 20px; /* Ensure input text matches table font size */
+  font-weight: 500;
+  width: 100%; /* Make inputs take full width of cells */
+}
+
+.wrap-text {
+  white-space: normal; /* Allows text to wrap within the element */
+  word-wrap: break-word; /* Breaks long words and moves text to the next line */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Adds ellipsis for overflowed text */
+  height: 100%; /* Ensures text takes full height of cell */
+}
+
+.dataRow {
+  height: 51px; /* Fixed height for all rows */
+  line-height: 1.2; /* Adjust line-height for text readability */
+}
+
+.items-table p {
+  margin: 0; /* Remove margin for paragraphs inside cells */
+  padding: 0; /* Remove padding for a more compact layout */
+  font-size: 12px; /* Match the font size to the cells */
+  height: 100%; /* Ensures paragraph takes full height of cell */
+}
+
+/* complete */
+
+
+
+/* Summary Section */
+
+
+/* Customer Contact Details Styling */
+.customer-contact-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.customer-details,
+.contact-details {
+  width: 48%;
+}
+
+.input-group {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.input-group label {
+  width: 40%;
+  font-weight: bold;
+  color: #333; /* Adjust color to contrast with background */
+}
+
+.input-group input {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Items Table Styling */
+
+  /* Input Group Styling */
+.input-group {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.input-group label {
+  width: 50%;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input-group input {
+  width: 50%;
+  padding: 18px;
+  border-radius: 4px;
+}
+
+.customer-contact-details {
+  border: 3px solid black;
+  padding-left: 21px;
+  padding-right: 22px;
+  padding-top: 42px;
+  padding-bottom: 0px;
+  border-radius: 30px;
+  background-color: white;
+  display: flex;
+  gap: 39px;
+}
+
+.customer-details,
+.contact-details {
+  flex: 1; /* Both columns take equal width */
+}
+
+.input-group {
+  margin-bottom: 0px; /* Space between input groups */
+}
+
+.input-group label {
+  display: block; /* Labels are on top of input fields */
+  margin-bottom: 5px; /* Space between label and input field */
+}
+
+.input-group input {
+  width: 100%; /* Inputs take full width */
+  padding: 5px; /* Padding inside input fields */
+  border-radius: 3px; /* Rounded corners for inputs */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Items Table Styling */
+
+/* Watermark Styling */
+/* .items-table tbody tr::before {
+  content: "";
+  background-image: url('./image/tjonlylogo_final.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1; /* Adjust opacity for watermark effect */
+  /* pointer-events: none; Allows text selection through watermark */
+  /* z-index: 1; Ensure watermark is behind content */
+
+
+
+
+
+/* Summary Section Styling */
+.summary-left {
+  padding: 0;
+}
+
+.summary-table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+.summary-table td {
+  width: 50%;
+  vertical-align: top;
+  border: 1px solid #000;
+}
+
+/* Header Content Styling */
+.header-content {
+  position: relative; /* Parent container is set to relative */
+}
+
+.header-content img {
+  width: 100%; /* Adjust image size as needed */
+  height: auto;
+}
+
+#items-table-body {
+  position: relative; /* Establish a positioning context for the pseudo-element */
+}
+
+#items-table-body::before {
+  content: ''; /* Required for pseudo-elements */
+  position: absolute; /* Position relative to the parent element */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./image/st_logo.png);
+  background-size: auto 250px; /* Width is auto, height is fixed at 250px */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  opacity: 0.1; /* Apply desired opacity to the background image */
+  pointer-events: none; /* Ensure the pseudo-element does not interfere with interactions */
+}

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bill Page</title>
+  <link rel="stylesheet" href="/bill/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+  <!-- <script src="html2canvas.js"></script> -->
+
+</head>
+
+<body>
+  <div class="container" id="makepdf">
+    <header>
+      <img src="./image/sample-template2.png" alt="Tandra Jewellery Header" />
+      <p class="invoice_No">
+        Invoice No: <label type="text" id="invoiceNo" name="invoice_No">
+      </p>
+
+    </header>
+   
+    <section class="party-details-section">
+      <p class="invoice-date" style="padding-right: 150px">
+        Date:
+        <label id="invoice-date" style="border: none; outline: none"></label>
+      </p>
+      <section class="party-details">
+    
+        <p class="party-details-title">Party Details</p>
+        <table style="
+        width: 95%;
+        border-collapse: collapse;
+        position: absolute;
+        margin-top: 7px;
+        margin-left: 15px;">
+          <tr>
+            <td style="width: 48%; padding: 10px;">
+              <div class="input-group">
+                <label for="customer-name">Name :</label>
+                <label id="customer-name" name="customer-name" style="width: 100%; border-radius: 3px; box-sizing: border-box;"></label>
+              </div>
+              
+              <!-- Address field added here below Name -->
+    
+            </td>
+            <div class="input-group" style="display: flex; align-items: center; gap: 23px; position:absolute;
+            margin-top: 34px;
+            margin-left: 21px;
+            width: 100%;
+            margin-bottom: 20px;">
+        <label for="customer-address" style="width: 10%; text-align: start; padding: 2px;">Address :</label>
+        <div id="customer-address" name="customer-address" style="width: 80%; border-radius: 3px; box-sizing: border-box; text-align: start; margin-bottom: 8px; font-size: 13px;font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+       
+        </div>
+      </div>
+      
+            <td style="width: 52%; padding: 10px;">
+              <div class="input-group">
+                <label for="customer-mobile" style="margin-left: 13px;">Mobile No :</label>
+                <label id="customer-mobile" name="customer-mobile" style="width: 100%; border-radius: 3px; box-sizing: border-box;margin-right: 25px;"></label>
+              </div>
+            </td>
+          </tr>
+        </table>
+    
+        <div class="customer-contact-details">
+          <div class="customer-details">
+            <div class="input-group">
+              <label for="customer-gstin">GSTIN :</label>
+              <label id="customer-gstin" name="customer-gstin" style="width: 100%;
+                        border-radius: 3px;
+                        box-sizing: border-box;"></label>
+            </div>
+            <div class="input-group">
+              <label for="customer-aadhaar">Aadhaar No :</label>
+              <label id="customer-aadhaar" name="customer-aadhaar" style="width: 100%;
+                        border-radius: 3px;
+                        box-sizing: border-box;"></label>
+            </div>
+          </div>
+          <div class="contact-details">
+            <div class="input-group">
+              <label for="customer-state-code">State Code :</label>
+              <label id="customer-state-code" name="customer-state-code" style="width: 100%;
+                        border-radius: 3px;
+                        box-sizing: border-box;"></label>
+            </div>
+            <div class="input-group">
+              <label for="customer-pan">PAN No :</label>
+              <label id="customer-pan" name="customer-pan" style="width: 100%;
+                        border-radius: 3px;
+                        box-sizing: border-box;">GQCxxxxxsx</label>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    
+    
+    
+
+    <table class="items-table">
+      <thead>
+        <tr>
+            <th style="background-color: white; text-align: center; width: 30px; border: 1px solid black;">
+                Sl. No.
+            </th>
+            <!-- Decrease width of Item Description -->
+            <th style="background-color: white; text-align: center; width: 340px; border: 1px solid black;">
+                Item Description
+            </th>
+            <th style="background-color: white; text-align: center; width: 20px; border: 1px solid black;">
+                H.S.N
+            </th>
+            <!-- Decrease width of G.W.T -->
+            <th style="background-color: white; text-align: center; width: 20px; border: 1px solid black;">
+                G.W.T
+            </th>
+            <!-- Decrease width of Purity -->
+            <th style="background-color: white; text-align: center; width: 30px; border: 1px solid black;">
+                Purity
+            </th>
+            <!-- Increase width of Price / 1gm -->
+            <th style="background-color: white; text-align: center; width: 70px; border: 1px solid black;">
+                Price / 1gm
+            </th>
+            <!-- Increase width of Item Value -->
+            <th style="background-color: white; text-align: center; width: 70px; border: 1px solid black;">
+                Item Value
+            </th>
+            <!-- Increase width of Making Charge -->
+            <th style="background-color: white; text-align: center; width: 60px; border: 1px solid black;">
+                Making Charge
+            </th>
+            <!-- Increase width of Taxable Value -->
+            <th style="background-color: white; text-align: center; width: 100px; border: 1px solid black;">
+                Taxable Value
+            </th>
+        </tr>
+    </thead>
+    
+      <tbody id="items-table-body">
+        <tr class="dataRow"  id="row_1">
+          <td>
+            <p id="serial_1"></p>
+          </td>
+          <td>
+            <p id="itemDescription_1" class="wrap-text"></p>
+          </td>
+          <td>
+            <p id="hsn_1"></p>
+          </td>
+          <td>
+            <p id="gwt_1"></p>
+          </td>
+          <td>
+            <p id="purity_1"></p>
+          </td>
+          <td>
+            <p id="price_1"></p>
+          </td>
+          <td>
+            <p id="itemValue_1"></p>
+          </td>
+          <td>
+            <p id="makingCharge_1"></p>
+          </td>
+          <td>
+            <p id="taxableValue_1"></p>
+          </td>
+        </tr>
+        <!-- Additional rows can be added as needed -->
+        <tr class="dataRow" id="row_2">
+          <td>
+            <p id="serial_2"></p>
+          </td>
+          <td>
+            <p id="itemDescription_2"  class="wrap-text"></p>
+          </td>
+          <td>
+            <p id="hsn_2"></p>
+          </td>
+          <td>
+            <p id="gwt_2"></p>
+          </td>
+          <td>
+            <p id="purity_2"></p>
+          </td>
+          <td>
+            <p id="price_2"></p>
+          </td>
+          <td>
+            <p id="itemValue_2"></p>
+          </td>
+          <td>
+            <p id="makingCharge_2"></p>
+          </td>
+          <td>
+            <p id="taxableValue_2"></p>
+          </td>
+        </tr>
+        <tr class="dataRow" id="row_3">
+          <td>
+            <p id="serial_3"></p>
+          </td>
+          <td>
+            <p id="itemDescription_3"  class="wrap-text"></p>
+          </td>
+          <td>
+            <p id="hsn_3"></p>
+          </td>
+          <td>
+            <p id="gwt_3"></p>
+          </td>
+          <td>
+            <p id="purity_3"></p>
+          </td>
+          <td>
+            <p id="price_3"></p>
+          </td>
+          <td>
+            <p id="itemValue_3"></p>
+          </td>
+          <td>
+            <p id="makingCharge_3"></p>
+          </td>
+          <td>
+            <p id="taxableValue_3"></p>
+          </td>
+        </tr>
+        <tr class="dataRow" id="row_4">
+          <td>
+            <p id="serial_4"></p>
+          </td>
+          <td>
+            <p id="itemDescription_4"  class="wrap-text"></p>
+          </td>
+          <td>
+            <p id="hsn_4"></p>
+          </td>
+          <td>
+            <p id="gwt_4"></p>
+          </td>
+          <td>
+            <p id="purity_4"></p>
+          </td>
+          <td>
+            <p id="price_4"></p>
+          </td>
+          <td>
+            <p id="itemValue_4"></p>
+          </td>
+          <td>
+            <p id="makingCharge_4"></p>
+          </td>
+          <td>
+            <p id="taxableValue_4"></p>
+          </td>
+        </tr>
+        <tr class="dataRow" id="row_5">
+          <td>
+            <p id="serial_5"></p>
+          </td>
+          <td>
+            <p id="itemDescription_5"  class="wrap-text"></p>
+          </td>
+          <td>
+            <p id="hsn_5"></p>
+          </td>
+          <td>
+            <p id="gwt_5"></p>
+          </td>
+          <td>
+            <p id="purity_5"></p>
+          </td>
+          <td>
+            <p id="price_5"></p>
+          </td>
+          <td>
+            <p id="itemValue_5"></p>
+          </td>
+          <td>
+            <p id="makingCharge_5"></p>
+          </td>
+          <td>
+            <p id="taxableValue_5"></p>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- Add more tables or sections below as needed -->
+
+    <div style="display: flex; margin-top: 0px">
+      <!-- Left Table -->
+     
+      <table style="
+      margin-top: 121px;
+      margin-left: 14px;
+  width: 70%;
+  border-collapse: collapse;
+  height: fit-content;
+  padding: 5px;
+">
+  <tr>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <strong>Return value (Rs.)</strong>
+    </td>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <label id="return_value" name="return_value" style="width: 100%; border: none; outline: none;"></label>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <strong>Received Amount (Rs.)</strong>
+    </td>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <label id="received_amount" name="received_amount" style="width: 100%; border: none; outline: none;"></label>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <strong>Due Amount (Rs.)</strong>
+    </td>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <label id="due_amount" name="due_amount" style="width: 100%; border: none; outline: none; font-weight: bold;"></label>
+    </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <strong>Payable Amount in Words</strong>
+    </td>
+    <td style="border: 1px solid black; padding: 6px; font-size: 12px;">
+      <textarea id="payable_amount_words" name="payable_amount_words" style="
+        width: 90%;
+        height: 60px;
+        border: none;
+        outline: none;
+        resize: none;
+        font-size: 12px;
+        padding: 4px;
+      "></textarea>
+    </td>
+  </tr>
+</table>
+
+      <table style="width: 50%; border-collapse: collapse; margin-right: 15px;">
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>Total (Rs.)</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="total" name="total" style="width: 100%; border: none; outline: none; font-weight: bold;" ></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>CGST@1.50%</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="cgst" name="cgst" style="width: 100%; border: none; outline: none;"></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>SGST@1.50%</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 4px; font-size: 12px;">
+            <label id="sgst" name="sgst" style="width: 100%; border: none; outline: none;"></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>IGST@3%</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="igst" name="igst" style="width: 100%; border: none; outline: none;"></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px; " class="vertical-line">
+            <strong>Grand Total (Rs.)</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="grand_total" name="grand_total" style="width: 100%; border: none; outline: none; font-weight: bold;"></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>Discount (%)</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="discount" name="discount" style="width: 100%; border: none; outline: none;"></label>
+          </td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;" class="vertical-line">
+            <strong>Payable Amount</strong>
+          </td>
+          <td style="border: 1px solid black; padding: 2px; font-size: 12px;">
+            <label id="payable" name="payable" style="width: 100%; border: none; outline: none; font-weight: bold;"></label>
+          </td>
+        </tr>
+      </table>
+      
+    </div>
+
+    <footer>
+      <img src="./image/Fotter.png" alt="" style="width: 100%; position: sticky; bottom: 0; " />
+    </footer>
+  </div>
+  <div style="padding-left: 730px;">
+    <button id="printBtn">Print</button>
+  </div>
+
+  <script src="/bill/script.js"></script>
+</body>
+
+</html>

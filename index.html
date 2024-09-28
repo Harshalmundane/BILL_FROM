@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Invoice</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="path_to_your_favicon/favicon.ico">
+</head>
+<body>
+    <div class="invoice-container">
+        
+        <header>
+            <div class="header-text">
+                <h1>TAX INVOICE / CASH-CREDIT MEMO</h1>
+                <p>Prop - Owner Name</p>
+                <p>Mob – 97XXXXXXXX / 79XXXXXXXX / 79XXXXXXXX</p>
+                <p>Manufacturer & Seller of Gold Ornaments</p>
+                <p>Address..............................</p>
+                <p>GSTIN- 1XXXXXXXXXRFXXX</p>
+            </div>
+        </header>
+
+        <div class="invoice-details">
+            <div class="left">
+                <p>Invoice No: <input id="invoice_no" type="text" name="invoiceNo"></p>
+            </div>
+        </div>
+
+        <div class="party-details">
+            <div class="left">
+                <h2>Party Details</h2>
+                <p><label for="partyName">Name:</label> <input type="text" id="partyName" name="partyName" value=""></p>
+                <p><label for="address">Address: <span id="wordCount" style="font-size: smaller; font-weight: 200;">0/65 words</span></label>
+                <input type="text" id="address" name="address" value=""></p>
+                <p><label for="partyGSTIN">GSTIN:</label> <input type="text" id="partyGSTIN" name="partyGSTIN" value=""></p>
+                <p><label for="aadhaar">Aadhaar No.:</label> <input type="text" id="aadhaar" name="aadhaar" value=""></p>
+            </div>
+        
+            <div class="right">
+                <h2 style="margin-bottom: 31px;"></h2>
+                <p ><label for="date">Date:</label> <input type="date" id="date" name="name"></p>
+                <p><label for="mobile">Mobile No.:</label> <input type="text" id="mobile" name="mobile" value=""></p>
+                <p><label for="stateCode">State Code:</label> <input type="text" id="stateCode" name="stateCode" value=""></p>
+                <p><label for="pan">PAN No.:</label> <input type="text" id="pan" name="pan" value=""></p>
+            </div>
+        </div>
+
+        <button id="addItemButton">+  Add Item</button>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>Sl. No.</th>
+                    <td><span style="font-weight: bold;">Item Description</span><br><p id="charCountDisplay" style="font-size: smaller;">(65 Letter Limit)</p></td>
+                    <th>G.W.T</th>
+                    <th>Purity</th>
+                    <th>Price/1gm</th>
+                    <th>Item Value</th>
+                    <th>Making Charge</th>
+                    <th>Taxable Value</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="itemsTableBody">
+                <tr>
+                    <td>1</td>
+                    <td><input class="tableRow" type="text" class="itemDesc" name="itemDescription" id="itemDescription_1"></td>
+                    <td><input class="tableRow" type="text" name="gwt" id="gwt_1"></td>
+                    <td><input class="tableRow" type="text" name="purity" id="purity_1" value="916" readonly></td>
+                    <td><input class="tableRow" type="text" name="pricePerGm" id="pricePerGm_1"></td>
+                    <td><input class="tableRow" type="text" name="itemValue" id="itemValue_1" readonly></td>
+                    <td><input class="tableRow" type="text" name="makingCharge" id="makingCharge_1"></td>
+                    <td><input class="tableRow" type="text" name="taxableValue" id="taxableValue_1" readonly></td>
+                    <td><button class="delete-button" onclick="deleteRow(this)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button id="calculateButton">Calculate</button>
+        </div>
+
+        <div class="summary-section">
+            <div class="left-summary">
+                <p><label for="returnValue">Return value (Rs.):</label> <input type="text" id="returnValue" name="returnValue"></p>
+                <p><label for="receivedAmount">Received Amount (Rs.):</label> <input type="text" id="receivedAmount" name="receivedAmount"></p>
+                <p><label for="dueAmount">Due Amount (Rs.):</label> <input type="text" id="dueAmount" name="dueAmount" readonly></p>
+                <p><label for="payableWords">Payable Amount in Words:</label> <input type="text" id="payableWords" name="payableWords" readonly></p>
+            </div>
+
+            <div class="vertical-line"></div>
+
+            <div class="right-summary">
+                <p><label for="totalAmount">Total (Rs.):</label> <input type="text" id="totalAmount" name="totalAmount" readonly></p>
+                <p><label for="cgst">CGST@1.50%:</label> <input type="text" id="cgst" name="cgst" readonly></p>
+                <p><label for="sgst">SGST@1.50%:</label> <input type="text" id="sgst" name="sgst" readonly></p>
+                <p>
+                    <label for="igst">IGST@3%:</label> 
+                    <input type="checkbox" id="igstCheckbox" name="igstCheckbox"> 
+                    <input type="text" id="igst" name="igst" readonly>
+                </p>
+                <p><label for="grandTotal">Grand Total (Rs.):</label> <input type="text" id="grandTotal" name="grandTotal" readonly></p>
+                <p><label for="discount">Discount:</label> <input type="text" id="discount" name="discount"></p>
+                <p><label for="payable">Payable Amount:</label> <input type="text" id="payable" name="payable" readonly></p>
+            </div>
+        </div>
+
+
+        <div class="button-container">
+            <button id="PrintButton">Print</button>
+        </div>
+
+      
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="./script.js"></script>
+    
+</body>
+</html>
